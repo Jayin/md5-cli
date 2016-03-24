@@ -24,7 +24,8 @@ if(_string){
 
 if(files){
   files.forEach(function(file, index){
-    let message = fs.readFileSync(path.join(file),{encoding: 'utf-8'})
+    let messageBuffer = fs.readFileSync(path.join(file))
+    let message = messageBuffer.toString('utf-8', 0, 1000);
     console.log(md5(message))
   })
 }
