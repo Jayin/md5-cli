@@ -13,19 +13,19 @@ program
   .arguments('[files...]')
   .description('md5 util')
   .parse(process.argv)
-  
-  
+
+
 let files = program.args
 let _string = program.string
 
-if(_string){
+if (_string) {
   console.log(md5(_string))
 }
 
-if(files){
-  files.forEach(function(file, index){
+if (files) {
+  files.forEach(function(file, index) {
     let messageBuffer = fs.readFileSync(path.join(file))
-    let message = messageBuffer.toString('utf-8', 0, 1000);
+    let message = messageBuffer.toString('utf-8', 0, 1000)
     console.log(md5(message))
   })
 }
